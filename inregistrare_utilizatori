@@ -1,0 +1,11 @@
+#!/bin/bash
+
+read -p "Introduceți numele de utilizator: " nume_utilizator
+
+# Presupunem că utilizatorii sunt salvați în fișierul "utilizatori.txt"
+if grep -Fxqs "$nume_utilizator" utilizatori.txt; then
+    echo "Eroare: Numele de utilizator '$nume_utilizator' este deja folosit."
+else
+    echo "$nume_utilizator" >> utilizatori.txt
+    echo "Înregistrare reușită pentru utilizatorul '$nume_utilizator'."
+fi
